@@ -8,13 +8,13 @@ export default function Clock() {
   useEffect(() => {
     const interval = setInterval(()=>{
       setSegundo(segundo + 1)
-      if(segundo == 59){
+      if(segundo === 59){
         setMinuto(minuto + 1)
         setSegundo(0)
-      }else if(minuto == 60){
+      }else if(minuto === 60){
         setMinuto(0);
         setHora(hora+1);
-        if(hora == 23){
+        if(hora === 23){
           setHora(0);
           setMinuto(0);
           setSegundo(0);
