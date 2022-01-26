@@ -1,13 +1,17 @@
-import React, {useEffect } from 'react';
+import React, {useEffect, useState } from 'react';
 
 export default function Clock() {
-  const [hora, setHora] = setState(5);
-  const [minuto, setMinuto] = setState(10);
+  const [hora, setHora] = useState(5);
+  const [minuto, setMinuto] = useState(10);
+  const [segundo, setSegundo] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(()=>{
-      setMinuto(minuto + 1)
-      if(minuto == 60){
+      setSegundo(segundo + 1)
+      if(segundo == 59){
+        setMinuto(minuto + 1)
+        setSegundo(0)
+      }else if(minuto == 59){
         setMinuto(0);
         setHora(hora+1);
       }
@@ -16,9 +20,8 @@ export default function Clock() {
   });
 
   return (
-    <div>
-      <h1>{hora}:{minuto}</h1>
-      <hr></hr>
+    <div className='Clockk'>
+      <h1>{hora}:{minuto}:{segundo}</h1>
     </div>
   );
 }
